@@ -1,0 +1,43 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Conda
+.conda/
+conda-meta/
+conda-bld/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints
+
+# Data - Assuming data is downloaded separately and large
+# Adjust if data is small and should be versioned
+data/*
+!data/README_CXR.md
+!data/README_MRI.md
+
+# Large Files / Outputs (adjust as needed)
+results/raw_outputs/
+results/figures_generated/* # Often better to generate figures than store all versions
+*.pth
+*.pt
+*.onnx
+*.tflite
+*.pb
+*.h5
+
+# IDE / OS specific
+.idea/
+.vscode/
+*.DS_Store
+Thumbs.db

@@ -1,0 +1,35 @@
+# environment.yml
+name: radio-quant
+channels:
+  - pytorch
+  - nvidia # For CUDA toolkit if needed by bitsandbytes
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10 # Or your preferred Python version
+  - pip
+  # Core ML/Data Science
+  - pytorch::pytorch>=2.0
+  - pytorch::torchvision
+  - pytorch::torchaudio
+  # - pytorch::pytorch-cuda=11.8 # Uncomment and adjust if specific CUDA needed
+  - tensorflow # Or tensorflow-cpu if GPU not needed for TF Lite part
+  - pandas
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - jupyterlab # For notebooks
+  # Quantization
+  - bitsandbytes>=0.41 # Check for latest compatible version
+  # Medical Imaging (Add specific ones as needed)
+  - pydicom
+  - nibabel
+  - simpleitk
+  # - monai # Powerful framework, consider adding
+  # Utilities
+  - tqdm
+  - pyyaml
+  # Pip dependencies (if any aren't on Conda)
+  # - pip:
+  #   - some-pip-package

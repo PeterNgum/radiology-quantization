@@ -1,0 +1,28 @@
+# code/benchmarks/mri_segmentation/config_mri.yaml
+# Configuration for the MRI segmentation benchmark
+
+data:
+  # Path to the root directory of the MRI dataset (e.g., BraTS)
+  path: "/path/to/your/mri/dataset" # !!! IMPORTANT: Update this path !!!
+  # Specify input modalities, target structures, etc. if needed
+  in_channels: 1 # e.g., 1 for T1, 4 for BraTS multimodal
+  out_channels: 1 # Number of segmentation classes (e.g., 1 for tumor core, 3 for WT/TC/ET)
+
+model:
+  name: "unet3d" # Or specific name like monai.networks.nets.UNet
+  # Add model-specific parameters like features, depth etc.
+
+quantization:
+  methods:
+    - "FP32"
+    - "PTQ_INT8"
+    # - "QAT_INT8" # Add if implementing QAT
+  calibration_samples: 50
+
+evaluation:
+  batch_size: 1 # Typically 1 for 3D segmentation due to memory
+  metrics: ["Dice", "InferenceTime", "Memory"]
+
+output:
+  dir: "results/processed"
+  results_file: "mri_benchmark_results.csv"
